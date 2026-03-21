@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>BNEWS</title>
+
+<style>
+body{
+margin:0;
+font-family: Arial;
+background:#f5f6fa;
+}
+
+header{
+background:#3f2650;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.container{
+display:flex;
+height:80vh;
+}
+
+.esquerda{
+width:20%;
+background:#ecf0f1;
+padding:10px;
+}
+
+.centro{
+width:50%;
+padding:10px;
+}
+
+.direita{
+width:30%;
+background:#ecf0f1;
+padding:10px;
+}
+
+iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+.noticia{
+background:white;
+padding:10px;
+margin-bottom:10px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.noticia:hover{
+background:#dfe6e9;
+}
+
+footer{
+background:#3f2650;
+padding:10px;
+text-align:center;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    
+<h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">🅱️BNEWS</h1>
+</header>
+
+<div class="container">
+
+
+<div class="esquerda">
+<h3>🕘 Histórico</h3>
+<ul id="historico"></ul>
+</div>
+
+
+<div class="centro">
+<iframe id="tela"></iframe>
+</div>
+
+
+<div class="direita">
+<h3>📰 Sites de Notícias</h3>
+
+<div class="noticia" onclick="abrir('G1','https://g1.globo.com')">G1</div>
+
+<div class="noticia" onclick="abrir('BBC Brasil','https://www.bbc.com/portuguese')">BBC Brasil</div>
+
+<div class="noticia" onclick="abrir('UOL','https://www.uol.com.br')">UOL</div>
+
+<textarea rows="10" cols="50" placeholder="Escreva suas anotações aqui..."></textarea>
+</div>
+
+</div>
+
+<footer>
+
+
+</footer>
+
+<script>
+
+function abrir(nome, url){
+
+let frame = document.getElementById("tela");
+
+// tenta abrir no iframe
+frame.src = url;
+
+// se não funcionar - abre em nova aba
+setTimeout(function(){
+window.open(url, "_blank");
+}, 1500);
+
+// histórico
+let li = document.createElement("li");
+li.innerText = nome;
+document.getElementById("historico").prepend(li);
+
+}
+
+</script>
+
+</body>
+</html>
