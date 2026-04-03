@@ -1,0 +1,64 @@
+.block{
+   border: 1px solid rgb(0, 0, 0);
+   padding: 10px;
+   margin: 10px;
+   background-color: rgba(139, 139, 139, 0.394);
+   border-radius: 10px;
+}
+
+/* MUDANÇA: Grid com 2 colunas iguais */
+.grid .block {
+   border: 2px solid rgb(0, 0, 0);
+   background-color: rgba(255, 255, 0, 0.2);
+}
+.inline{
+    
+    display: inline-block;
+    padding: 2px;
+    margin: 2px;
+    border: 1px solid rgba(127, 0, 0, 0.641);
+    background-color: rgba(58, 14, 154, 0.679);
+    border-radius: 10px;
+}
+.conteiner{
+      display: block;
+      padding: 10px;
+      margin: 10px;
+      border: 1px solid rgba(0, 0, 255, 0.641);
+      background-color: rgba(158, 158, 158, 0.679);
+      border-radius: 10px;
+}
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    gap: 10px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 255, 0.641);
+    background-color: rgba(0, 255, 255, 0.679);
+    border-radius: 10px;
+}
+.flex{
+   display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    gap: 10px;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 255, 0.641);
+    background-color: rgba(0, 255, 255, 0.679);
+    border-radius: 10px;
+    
+}
+.grid {
+      display: grid;
+      border: 1px solid rgb(187, 24, 24);
+      background-color: rgba(215, 215, 215, 0.568);
+      border-radius: 10px;
+      padding: 10px; 
+      margin: 10px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+     
+}
