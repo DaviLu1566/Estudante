@@ -1,0 +1,61 @@
+.header {
+    text-align: center;
+    background-color: rgb(1, 0, 54);
+    border: 56% solid;
+    padding : 10px;
+    font-family: 10px Arial, Helvetica, sans-serif;
+    color: white;
+}
+.footer {
+   
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(1, 0, 54);
+    border:  30% solid;
+    font-family: 10px Arial, Helvetica, sans-serif;
+    
+color: white;
+}
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    
+}
+.destaque {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+ 
+}
+
+.card {
+  flex: 1 1 250px;
+  min-width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  padding: 20px;
+  background: #fff;
+}
+.titulo{ 
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bolder;
+}
+.texto{
+    font: optional;
+}
+.botao {
+  text-decoration: none;
+  background-color: rgb(45, 115, 247);
+  color:rgb(255, 255, 255);
+  padding: 6px;
+  display:inline-block;
+  border-radius: 6px;
+}
