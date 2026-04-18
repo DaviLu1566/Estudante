@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Box Model - Exemplo Didático</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .box {
+      width: 200px;
+      background-color: white;
+      text-align: center;
+    }
+
+    /* 🔹 1. Caixa básica */
+    .box1 {
+          }
+
+    /* 🔹 2. Com padding */
+    .box2 {
+          }
+
+    /* 🔹 3. Com margin */
+    .box3 {
+      
+    }
+
+    /* 🔹 4. Completa (margin + padding + border) */
+    .box4 {
+      
+    }
+
+    /* 🔹 5. Com tamanhos diferentes */
+    .box5 {
+      
+    }
+
+    /* 🔹 6. Box-sizing (diferença importante) */
+    .box6 {
+      
+    }
+
+    .titulo {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .info {
+      font-size: 14px;
+      color: #555;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>CSS Box Model - Comparativo</h1>
+
+  <div class="container">
+
+    <div class="box box1">
+      <div class="titulo">Box 1</div>
+      <div class="info">Apenas border</div>
+    </div>
+
+    <div class="box box2">
+      <div class="titulo">Box 2</div>
+      <div class="info">Com padding</div>
+    </div>
+
+    <div class="box box3">
+      <div class="titulo">Box 3</div>
+      <div class="info">Com margin</div>
+    </div>
+
+    <div class="box box4">
+      <div class="titulo">Box 4</div>
+      <div class="info">Margin + Padding + Border</div>
+    </div>
+
+    <div class="box box5">
+      <div class="titulo">Box 5</div>
+      <div class="info">Tamanho diferente</div>
+    </div>
+
+    <div class="box box6">
+      <div class="titulo">Box 6</div>
+      <div class="info">Com box-sizing</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
