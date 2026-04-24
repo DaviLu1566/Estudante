@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+}
+
+.container {
+  padding: 20px;
+
+}
+
+.card {
+  display: flex;
+  flex-direction: column; /* mobile-first */
+  background: rgb(0, 79, 170);
+  border-radius: 10px;
+  overflow:hidden;
+  font-size: 1rem;
+
+ 
+}
+
+.card img {
+  width: 25%;
+  height: auto;
+  
+}
+
+.conteudo {
+  padding: 16px;
+  font-size: 1.2rem;
+}
+@media (min-width: 768px) {
+  .card {
+    flex-direction: row;
+      background: aqua;
+  }
+}
+h1 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.resumo {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.texto {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
