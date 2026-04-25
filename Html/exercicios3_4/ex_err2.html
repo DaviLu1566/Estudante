@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista com erros graves</title>
+</head>
+<body BGCOLOR="lightgray">
+
+    <h1>Exemplo de lista com erros</h1>
+
+    <ol>
+        <li>Item 1</li>
+        <li>Item 2</li> <!--tag incorreta </ul> além de ter um atributo desnecessario bgcolor.-->
+    </ol> <!--Não havia fechamento da tag <ol>-->
+       
+        <ul>
+            <li>Subitem 1</li> <!--fechamento da tag errada </ol>-->
+            <li>Subitem 2</li> <!--Abriu tag incorreta <ol>-->
+        </ul>
+
+        <!--Abriu com a tag errada <li>-->
+         <ol>
+            <li>Item 3</li>
+        </ol> <!--fechou com a tag incorreta </ul>-->
+
+    </lista>
+
+</body>
+</html>
