@@ -1,0 +1,78 @@
+/* Remove margens padrão */
+
+
+/* BODY */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+/* Remove bolinhas da lista */
+.nada{
+    list-style-type: none;
+}
+
+/* CONTAINER PRINCIPAL */
+.sc_davi_container{
+    display: flex;
+    /* espaço entre os dois containers */
+    gap: 30px;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* CONTAINER PERFIL */
+.sc_davi_perfil{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 203, 134);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 15px;
+}
+
+/* CONTAINER DESCRIÇÃO */
+.sc_davi_descricao{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(215, 249, 250, 0.808);
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    gap: 15px;
+}
+
+/* IMAGEM */
+.sc_davi_img{
+    width: 200px;
+    border-radius: 10px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px){
+
+    /* containers ficam um embaixo do outro */
+    .sc_davi_container{
+        flex-direction: column;
+    }
+
+    /* muda cor no celular */
+    .sc_davi_perfil{
+        background-color: rgb(255, 170, 170);
+    }
+
+    .sc_davi_descricao{
+        background-color: rgb(173, 210, 255);
+    }
+
+    body{
+        background-color: aquamarine;
+    }
+}
