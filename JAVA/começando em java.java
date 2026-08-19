@@ -1,11 +1,12 @@
 import java.util.Scanner;
 public class Main
 {
-    //Scanner serve para print ?
      public static void main(String[] args) {
-		//Scanner digite= new Scanner(System.in);
-		//System.out.println ("Digite seu nome lindo ");
-	//String nome= digite.nextLine();
+	// é preciso criar as variaveis antes de começar a codar, se for uma letra defini-se String, já se for numero inteiro se define "Int"
+	// Já o float serve para definir um número quebrado.
+	//Scanner digite= new Scanner(System.in); essa parte serve para definir uma coisa para digitar.
+	//System.out.println ("Digite seu nome lindo "); System.out.print serve para printar.
+	//String nome= digite.nextLine(); 
 	//System.out.println ("Seu nome é " + nome );
 	//System.out.println("olá " + nome + " que nome horrivel ")
 	float base, altura;
