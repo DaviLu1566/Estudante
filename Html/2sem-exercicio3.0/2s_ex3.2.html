@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de media das notas</title>
+  </head>
+  <body>
+    <h1>Calculadora</h1>
+    <h2></h2>
+    <input type="number" id="nota0" placeholder="Digite a primeira nota..." />
+    <button onclick="calcular()">Calcular média</button>
+    <input type="number" id="nota1" placeholder="Digite a segunda nota..." />
+    <div id="resultadoCalculo"></div>
+    <script>
+      function calcular() {
+        const nota0 = Number(document.getElementById("nota0").value);
+        const nota1 = Number(document.getElementById("nota1").value);
+        const media = (nota0 + nota1) / 2;
+        document.getElementById("resultadoCalculo").textContent =
+          "Média = " + media;
+      }
+    </script>
+  </body>
+</html>
