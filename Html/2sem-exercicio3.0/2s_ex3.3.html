@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas</title>
+</head>
+<body>
+
+    <h1>Tarefas diárias</h1>
+    <input type="text" id="campo-de-tarefa" placeholder="Descreva a tarefa aqui...">
+    <button onclick="AdicionarTarefa()">Adicionar</button>
+    <ul id="listaTarefas"></ul>
+
+    <script>
+        let listaDeTarefas = [];
+        function AdicionarTarefa() {
+            const campo = document.getElementById("campo-de-tarefa");
+            const tarefa = campo.value.trim();
+            if (!tarefa) {
+                return;
+            }
+            listaDeTarefas.push(tarefa);
+            campo.value = "";
+            mostrarTarefas();
+        }
+
+        function mostrarTarefas() {
+            const lista = document.getElementById("listaTarefas");
+            lista.innerHTML = "";
+            listaDeTarefas.forEach(function(tarefa) {
+            const item = document.createElement("li");
+            item.textContent = tarefa;
+            lista.appendChild(item);
+            });
+        }
+    </script>
+
+</body>
+</html>
