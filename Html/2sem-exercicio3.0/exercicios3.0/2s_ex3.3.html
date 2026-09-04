@@ -1,57 +1,43 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Painel de Cadastro</title>
-  </head>
-  <body>
-    <h1>Cadastro do produto</h1>
-    <h3>
-      Nome do produto:
-      <input type="text" id="nome-produto" placeholder="Digite o nome do produto..."/>
-    </h3>
-    <h3>
-      Preço do produto:
-      <input
-        type="number" id="preco-produto" placeholder="Digite o preço do produto..."
-      />
-    </h3>
-
-    <button onclick="cadastro()">Cadastrar Produto</button>
-    <ul id="listaproduto"></ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Minha Lista de Tarefas</h1>
+    <input type="text" id="descricaoTarefa" placeholder="Digite uma tarefa..."
+    >
+    <button onclick="adicionarTarefa()">Adicionar Tarefa</button>
+    <ul id="minhasTarefas"></ul>
     <script>
-      function cadastro() {
-        const produto = document.getElementById("nome-produto");
-        const preco = document.getElementById("preco-produto");
-        const lista = document.getElementById("listaproduto");
-
-        // Verifica se os campos estão vazios
-        if (produto.value.trim() === "" || preco.value.trim() === "") {
-          alert("Preencha todos os campos!");
-          return;
+        // 1. Array global vazio
+        let listaDeTarefas = [];
+        // 2. Função para adicionar uma tarefa
+        function adicionarTarefa() {
+            // Pega o que foi digitado
+            let tarefa = document.getElementById("descricaoTarefa").value;
+            // Adiciona a tarefa no array
+            listaDeTarefas.push(tarefa);
+            // Limpa o campo de texto
+            document.getElementById("descricaoTarefa").value = "";
+            // Atualiza a lista na tela
+            atualizarLista();
         }
-        // Cria o item da lista
-        const item = document.createElement("li");
-        // Coloca nome e preço no item
-        item.textContent =
-          "Produto: " + produto.value + " | Preço: R$ " + preco.value + " ";
-        // Cria o botão Apagar
-        const botaoApagar = document.createElement("button");
-        botaoApagar.textContent = "Apagar";
-        // Quando clicar, apaga o item
-        botaoApagar.onclick = function () {
-          item.remove();
-        };
-        // Coloca o botão dentro do item
-        item.appendChild(botaoApagar);
-        // Coloca o item na lista
-        lista.appendChild(item);
-        alert("Produto salvo!");
-        // Limpa os campos
-        produto.value = "";
-        preco.value = "";
-      }
+        // 3. Função responsável por atualizar a lista
+        function atualizarLista() {
+            // Limpa a lista visual
+            document.getElementById("minhasTarefas").innerHTML = "";
+            // Percorre o array usando for tradicional
+            for (let i = 0; i < listaDeTarefas.length; i++) {
+                // Adiciona cada tarefa dentro de um <li>
+                document.getElementById("minhasTarefas").innerHTML +=
+                    "<li>" + listaDeTarefas[i] + "</li>";
+            }
+        }
+
     </script>
-  </body>
+
+</body>
 </html>
