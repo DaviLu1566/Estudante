@@ -1,29 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Cadastro.</title>
-</head>
-<body>
-    <h1><header>Cadastrameto do produto</header></h1>
-    <h3>Nome do produto:<input type="text" id ="nome-produto" placeholder="Digite o nome do produto..."></input></h3>
-    <h3>Preço do produto:<input type="number" id = "preço-produto" placeholder="Digite o preço do produto..."></input></h3>
-    <button onclick = "cadastro()">Cadastrar Produto</button>
-    <ul id = "listaproduto"></ul>
-<script>
-    function cadastro(){
-        const produto = document.getElementById ("nome-produto");
-        const preço = document.getElementById("preço-produto");
-        const salvar = preço.value.trim() && produto.value.trim()
-        if (produto.value.trim() !== "" && preço.value.trim() !== ""){
-            alert  ("Produto salvo")
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painel de Cadastro</title>
+  </head>
+
+  <body>
+    <h1>Cadastro do produto</h1>
+
+    <h3>
+      Nome do produto:
+      <input
+        type="text" id="nome-produto" placeholder="Digite o nome do produto..."
+      />
+    </h3>
+
+    <h3>
+      Preço do produto:
+      <input
+        type="number" id="preco-produto" placeholder="Digite o preço do produto..."
+      />
+    </h3>
+    <button onclick="cadastro()">Cadastrar Produto</button>
+    <ul id="listaproduto"></ul>
+    <script>
+      function cadastro() {
+        const produto = document.getElementById("nome-produto");
+        const preco = document.getElementById("preco-produto");
+        const lista = document.getElementById("listaproduto");
+        // Verifica se os campos estão vazios
+        if (produto.value.trim() === "" || preco.value.trim() === "") {
+          alert("Preencha todos os campos!");
+          return;
         }
-        if (produto.value.trim() === "" || preço.value.trim() === "") {
-            alert("Preencha todos os campos!");
-            return;
-        }
-    }
-</script>
-</body>
+        // Cria o item da lista
+        const item = document.createElement("li");
+        // Coloca nome e preço no item
+        item.textContent =
+          "Produto: " + produto.value + " | Preço: R$ " + preco.value + " ";
+        // Cria o botão Apagar
+        const botaoApagar = document.createElement("button");
+        botaoApagar.textContent = "Apagar";
+        // Quando clicar, apaga o item
+        botaoApagar.onclick = function () {
+          item.remove();
+        };
+        // Coloca o botão dentro do item
+        item.appendChild(botaoApagar);
+        // Coloca o item na lista
+        lista.appendChild(item);
+        alert("Produto salvo!");
+        // Limpa os campos
+        produto.value = "";
+        preco.value = "";
+      }
+    </script>
+  </body>
 </html>
