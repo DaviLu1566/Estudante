@@ -15,7 +15,15 @@
     function cadastro(){
         const produto = document.getElementById ("nome-produto");
         const preço = document.getElementById("preço-produto");
-}
+        const salvar = preço.value.trim() && produto.value.trim()
+        if (produto.value.trim() !== "" && preço.value.trim() !== ""){
+            alert  ("Produto salvo")
+        }
+        if (produto.value.trim() === "" || preco.value.trim() === "") {
+            alert("Preencha todos os campos!");
+            return;
+        }
+    }
 </script>
 </body>
 </html>
