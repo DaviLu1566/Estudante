@@ -1,0 +1,32 @@
+[
+  {
+    "nome": "Superman",
+    "foto": "https://i.pinimg.com/736x/64/70/35/647035cdbb5b8f661f1d5d9e645fe350.jpg",
+    "cargo": "Presidente",
+    "numero": "93"
+  },
+  {
+    "nome": "Batman",
+    "foto": "https://static1.srcdn.com/wordpress/wp-content/uploads/2024/09/batman-the-animated-series.jpg",
+    "cargo": "Governador(a)",
+    "numero": "93"
+  },
+  {
+    "nome": "Lanterna Verde",
+    "foto": "https://i.pinimg.com/originals/91/04/92/910492d42415b1fa36180f1441dcac7f.jpg",
+    "cargo": "Senador(a)",
+    "numero": "933"
+  },
+  {
+    "nome": "Flash",
+    "foto": "https://i.pinimg.com/originals/97/60/4f/97604f92f001a9876036f97eef3e9b22.jpg",
+    "cargo": "Deputado(a) Federal",
+    "numero": "9338"
+  },
+  {
+    "nome": "Mulher-Maravilha",
+    "foto": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/596a52ce-694e-4fe9-b1b0-dbf896f209a0/daegpma-87cb959f-8eed-45b9-85d6-67cd2c76c5a7.jpg/v1/fill/w_764,h_826,q_75,strp/dc_godzilla_files__wonder_woman_by_sideswipe217_daegpma-fullview.jpg",
+    "cargo": "Deputado(a) Estadual",
+    "numero": "93383"
+  }
+]

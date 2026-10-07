@@ -1,0 +1,32 @@
+[
+  {
+    "nome": "Mickey Mouse",
+    "foto": "https://logodix.com/logo/773003.jpg",
+    "cargo": "Presidente",
+    "numero": "91"
+  },
+  {
+    "nome": "Minnie Mouse",
+    "foto": "https://www.pngitem.com/pimgs/m/348-3482093_cartoon-classic-minnie-mouse-hd-png-download.png",
+    "cargo": "Governador(a)",
+    "numero": "91"
+  },
+  {
+    "nome": "Pato Donald",
+    "foto": "https://bilder.wunschliste.de/gfx/pics/1200/Donald-Duck.jpg",
+    "cargo": "Senador(a)",
+    "numero": "915"
+  },
+  {
+    "nome": "Pateta",
+    "foto": "https://www.cool2bkids.com/wp-content/uploads/2021/01/Goofy-Bilder-768x982.jpg",
+    "cargo": "Deputado(a) Federal",
+    "numero": "9170"
+  },
+  {
+    "nome": "Mago Merlin",
+    "foto": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/416474ba-7818-4241-8e82-32a7caded352/dgifqtp-674d807d-23b8-4c21-8503-3e382525c74a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQxNjQ3NGJhLTc4MTgtNDI0MS04ZTgyLTMyYTdjYWRlZDM1MlwvZGdpZnF0cC02NzRkODA3ZC0yM2I4LTRjMjEtODUwMy0zZTM4MjUyNWM3NGEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.r5T_AdxlUH65ypytbiCZrtzubhaREg3HE7wwEY9E6Aw",
+    "cargo": "Deputado(a) Estadual",
+    "numero": "91000"
+  }
+]
