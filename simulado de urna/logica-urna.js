@@ -16,13 +16,11 @@ const memoriaVotosEleitores = [];
 let votoEleitorAtual = {};
 const candidatosUnificados = [];
 
-// ==========================================
 // BÔNUS 2: SINTETIZADOR DO SOM DA URNA
-// ==========================================
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 function tocarSomPilili() {
   if (audioCtx.state === "suspended") audioCtx.resume();
-  // Frequências e tempos que imitam o "pi-li-li-liiii"
+  // Frequências e tempos que imitam a urna
   const notas = [
     { f: 2000, start: 0, dur: 0.08 },
     { f: 2000, start: 0.12, dur: 0.08 },
@@ -43,7 +41,6 @@ function tocarSomPilili() {
     osc.stop(audioCtx.currentTime + nota.start + nota.dur);
   });
 }
-// ==========================================
 
 window.onload = async () => {
   await carregarPartidos();
