@@ -1,15 +1,10 @@
-// Arquivo de configuração e processamento do Partido ____
-
 // Partido do aluno
 const PARTIDO = "PDC";
 const NUMERO_PARTIDO = "93";
 
 // Array que armazenará os candidatos carregados
 const candidatos = [];
-
-/*
- * Carrega os candidatos do partido PDC
- */
+ // Carrega os candidatos do partido PDC
 async function carregarCandidatos() {
   try {
     const resposta = await fetch("candidatos.json");
@@ -39,7 +34,6 @@ async function carregarCandidatos() {
 
 /*
  * Validação da numeração eleitoral
- *
  * Presidente       -> 93
  * Governador(a)    -> 93
  * Senador(a)       -> 93X
@@ -70,9 +64,9 @@ function validarNumeroCandidato(numero, cargo) {
   }
 }
 
-/*
- * Verifica quantidade máxima permitida por cargo
- */
+
+  //Verifica quantidade máxima permitida por cargo
+
 function validarLimiteCargo(registroCandidaturas, cargo) {
   const quantidade = registroCandidaturas.filter(
     (candidato) => candidato.cargo === cargo,
@@ -93,34 +87,30 @@ function validarLimiteCargo(registroCandidaturas, cargo) {
 
     case "Deputado(a) Estadual":
       return true;
-
+      
     default:
       return false;
   }
 }
 
-/*
- * Verifica se o candidato já foi registrado
- */
+
+  //Verifica se o candidato já foi registrado
+ 
 function candidatoJaRegistrado(registroCandidaturas, nome) {
   return registroCandidaturas.some((candidato) => candidato.nome === nome);
 }
 
-/*
- * Gera arquivo JSON para download
- */
+
+  //Gera arquivo JSON para download
+ 
 function exportarJSON(registroCandidaturas) {
   const json = JSON.stringify(registroCandidaturas, null, 2);
 
   const blob = new Blob([json], {
     type: "application/json",
   });
-
   const link = document.createElement("a");
-
   link.href = URL.createObjectURL(blob);
-
   link.download = "PDC.json";
-
   link.click();
 }
