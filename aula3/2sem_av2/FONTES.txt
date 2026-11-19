@@ -1,0 +1,16 @@
+FONTES OFICIAIS CONSULTADAS
+
+1. Folkhälsomyndigheten - Barnvaccinationsprogram
+https://www.folkhalsomyndigheten.se/vara-amnesomraden/vaccinationer/nationella-vaccinationsprogram/barnvaccinationsprogram
+
+Usado para adaptar o calendário infantil da Suécia, incluindo idades/doses do programa vigente em 2026.
+
+2. Skatteverket - Personnummer
+https://www.skatteverket.se/privat/folkbokforing/personnummer
+
+Usado para a estrutura do personnummer.
+
+3. Skatteverket - Fastställande av personnummer
+https://www4.skatteverket.se/rattsligvagledning/edition/2026.5/330242.html
+
+Usado para a regra oficial do dígito de controle pelo método modulus-10.

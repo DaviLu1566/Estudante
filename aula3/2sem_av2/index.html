@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital vaccinationsjournal för barn - Sverige</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="assets/mascote.png" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <img src="assets/mascote.png" alt="Vaccinationsmaskot" class="mascot" />
+        <div class="title-area">
+          <span class="eyebrow">Barnhälsa • Sverige</span>
+          <h1>Digital vaccinationsjournal</h1>
+          <p>
+            En lokal översikt över barnets vaccinationer enligt det svenska
+            barnvaccinationsprogrammet.
+          </p>
+        </div>
+        <img
+          src="assets/bandeira-suecia.webp"
+          alt="Sveriges flagga"
+          class="flag"
+        />
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="panel intro-panel">
+        <div>
+          <h2>Barnets uppgifter</h2>
+          <p>
+            Fyll i barnets grunduppgifter. Fält märkta med <strong>*</strong> är
+            obligatoriska.
+          </p>
+        </div>
+        <div id="form-status" class="status-pill neutral">Inte sparad</div>
+      </section>
+
+      <form id="child-form" novalidate>
+        <section class="panel form-panel">
+          <div class="form-grid">
+            <div class="field field-wide">
+              <label for="child-name">Barnets fullständiga namn *</label>
+              <input
+                type="text"
+                id="child-name"
+                autocomplete="name"
+                placeholder="Till exempel: Elsa Andersson"
+              />
+              <span class="field-error" id="error-name"></span>
+            </div>
+
+            <div class="field">
+              <label for="birth-date">Födelsedatum *</label>
+              <input type="date" id="birth-date" />
+              <span class="field-error" id="error-birth"></span>
+            </div>
+
+            <div class="field">
+              <label for="age-display">Ålder</label>
+              <input
+                type="text"
+                id="age-display"
+                readonly
+                placeholder="Beräknas automatiskt"
+              />
+            </div>
+
+            <div class="field field-wide">
+              <label for="personnummer">Personnummer *</label>
+              <input
+                type="text"
+                id="personnummer"
+                inputmode="numeric"
+                maxlength="13"
+                placeholder="ÅÅMMDD-XXXX"
+              />
+              <span class="field-hint"
+                >Godkänner ÅÅMMDD-XXXX eller ÅÅÅÅMMDDXXXX.</span
+              >
+              <span class="field-error" id="error-personnummer"></span>
+            </div>
+
+            <div class="field">
+              <label for="guardian-1">Vårdnadshavare 1 *</label>
+              <input
+                type="text"
+                id="guardian-1"
+                placeholder="Fullständigt namn"
+              />
+              <span class="field-error" id="error-guardian"></span>
+            </div>
+
+            <div class="field">
+              <label for="guardian-2">Vårdnadshavare 2</label>
+              <input type="text" id="guardian-2" placeholder="Valfritt" />
+            </div>
+          </div>
+        </section>
+
+        <section class="panel vaccine-panel">
+          <div class="section-heading">
+            <div>
+              <h2>Vaccinationsprogram</h2>
+              <p>
+                Öppna en vaccination för att registrera en given dos. Försenade
+                doser markeras automatiskt utifrån barnets ålder.
+              </p>
+            </div>
+            <div class="legend" aria-label="Statusförklaring">
+              <span><i class="dot pending"></i> Kommande</span>
+              <span><i class="dot overdue"></i> Försenad</span>
+              <span><i class="dot completed"></i> Registrerad</span>
+            </div>
+          </div>
+          <div id="vaccine-list" class="vaccine-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="panel save-panel">
+          <div>
+            <h2>Spara journalen lokalt</h2>
+            <p>
+              Uppgifterna sparas i den här webbläsaren och kan även laddas ned
+              som en JSON-fil.
+            </p>
+          </div>
+          <div class="save-actions">
+            <button type="button" id="btn-load" class="btn secondary">
+              Läs in sparad journal
+            </button>
+            <button type="submit" class="btn primary">
+              Spara och ladda ned JSON
+            </button>
+          </div>
+          <p id="save-message" class="save-message" aria-live="polite"></p>
+        </section>
+      </form>
+    </main>
+
+    <div
+      id="modal"
+      class="modal-backdrop hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal-card">
+        <button
+          type="button"
+          id="modal-close-x"
+          class="modal-x"
+          aria-label="Stäng"
+        >
+          ×
+        </button>
+        <span class="modal-kicker">Vaccinationsuppgift</span>
+        <h3 id="modal-title"></h3>
+        <dl class="vaccine-details">
+          <div>
+            <dt>Dos</dt>
+            <dd id="modal-dose"></dd>
+          </div>
+          <div>
+            <dt>Tidpunkt</dt>
+            <dd id="modal-time"></dd>
+          </div>
+          <div>
+            <dt>Skydd</dt>
+            <dd id="modal-protection"></dd>
+          </div>
+        </dl>
+
+        <label class="check-row">
+          <input type="checkbox" id="given-check" />
+          <span>Vaccinationen är given</span>
+        </label>
+
+        <div id="application-fields" class="application-fields hidden">
+          <div class="field">
+            <label for="application-date">Datum *</label>
+            <input type="date" id="application-date" />
+          </div>
+          <div class="field">
+            <label for="batch-number">Batch-/lotnummer *</label>
+            <input
+              type="text"
+              id="batch-number"
+              placeholder="Till exempel: AB1234"
+            />
+          </div>
+          <div class="field">
+            <label for="clinic">BVC / mottagning / elevhälsa *</label>
+            <input type="text" id="clinic" placeholder="Vårdenhet" />
+          </div>
+          <div class="field">
+            <label for="professional">Ansvarig vårdpersonal *</label>
+            <input type="text" id="professional" placeholder="Namn" />
+          </div>
+          <div class="field field-wide">
+            <label for="note">Anteckning</label>
+            <input type="text" id="note" placeholder="Valfri anteckning" />
+          </div>
+        </div>
+        <p id="modal-error" class="field-error modal-error"></p>
+        <div class="modal-actions">
+          <button type="button" id="modal-cancel" class="btn secondary">
+            Avbryt
+          </button>
+          <button type="button" id="modal-confirm" class="btn primary">
+            Spara uppgift
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

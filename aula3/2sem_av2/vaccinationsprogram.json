@@ -1,0 +1,22 @@
+{
+  "country": "Sverige",
+  "source": "Folkhälsomyndigheten - Barnvaccinationsprogram",
+  "updated_for": "2026",
+  "vaccinations": [
+    {"id":"rota-1","vaccin":"Rotavirus","dos":"Dos 1","tidpunkt":"6 veckor","minAgeMonths":1.5,"skydd":"Skyddar mot allvarlig magsjuka orsakad av rotavirus."},
+    {"id":"rota-2","vaccin":"Rotavirus","dos":"Dos 2","tidpunkt":"3 månader","minAgeMonths":3,"skydd":"Skyddar mot allvarlig magsjuka orsakad av rotavirus."},
+    {"id":"rota-3","vaccin":"Rotavirus","dos":"Dos 3 (för vaccin med tredosschema)","tidpunkt":"5 månader","minAgeMonths":5,"skydd":"Skyddar mot allvarlig magsjuka orsakad av rotavirus."},
+    {"id":"sexvalent-1","vaccin":"Difteri, stelkramp, kikhosta, polio, Hib och hepatit B","dos":"Dos 1","tidpunkt":"3 månader","minAgeMonths":3,"skydd":"Kombinationsvaccin som skyddar mot sex allvarliga infektioner."},
+    {"id":"sexvalent-2","vaccin":"Difteri, stelkramp, kikhosta, polio, Hib och hepatit B","dos":"Dos 2","tidpunkt":"5 månader","minAgeMonths":5,"skydd":"Kombinationsvaccin som skyddar mot sex allvarliga infektioner."},
+    {"id":"sexvalent-3","vaccin":"Difteri, stelkramp, kikhosta, polio, Hib och hepatit B","dos":"Dos 3","tidpunkt":"12 månader","minAgeMonths":12,"skydd":"Kombinationsvaccin som förstärker grundskyddet."},
+    {"id":"pneumo-1","vaccin":"Pneumokocker","dos":"Dos 1","tidpunkt":"3 månader","minAgeMonths":3,"skydd":"Skyddar mot allvarliga pneumokockinfektioner."},
+    {"id":"pneumo-2","vaccin":"Pneumokocker","dos":"Dos 2","tidpunkt":"5 månader","minAgeMonths":5,"skydd":"Skyddar mot allvarliga pneumokockinfektioner."},
+    {"id":"pneumo-3","vaccin":"Pneumokocker","dos":"Dos 3","tidpunkt":"12 månader","minAgeMonths":12,"skydd":"Förstärker skyddet mot allvarliga pneumokockinfektioner."},
+    {"id":"mpr-1","vaccin":"MPR - mässling, påssjuka och röda hund","dos":"Dos 1","tidpunkt":"18 månader","minAgeMonths":18,"skydd":"Skyddar mot mässling, påssjuka och röda hund."},
+    {"id":"dtap-polio-4","vaccin":"Difteri, stelkramp, kikhosta och polio","dos":"Påfyllnadsdos","tidpunkt":"5 år","minAgeMonths":60,"skydd":"Förnyar skyddet mot difteri, stelkramp, kikhosta och polio."},
+    {"id":"mpr-2","vaccin":"MPR - mässling, påssjuka och röda hund","dos":"Dos 2","tidpunkt":"Årskurs 1-2","minAgeMonths":84,"skydd":"Andra dosen ger ett långvarigt skydd mot MPR-sjukdomarna."},
+    {"id":"hpv-1","vaccin":"HPV","dos":"Dos 1","tidpunkt":"Årskurs 5","minAgeMonths":132,"skydd":"Skyddar mot infektioner som kan orsaka flera cancerformer."},
+    {"id":"hpv-2","vaccin":"HPV","dos":"Dos 2","tidpunkt":"Årskurs 5","minAgeMonths":138,"skydd":"Andra dosen i HPV-vaccinationen."},
+    {"id":"dtap-5","vaccin":"Difteri, stelkramp och kikhosta","dos":"Påfyllnadsdos","tidpunkt":"Årskurs 8-9","minAgeMonths":168,"skydd":"Förnyar skyddet mot difteri, stelkramp och kikhosta."}
+  ]
+}
