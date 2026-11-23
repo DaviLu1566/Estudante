@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Combinações Matemáticas</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    input[type="number"], select {
+      width: 100px;
+      padding: 10px;
+      font-size: 18px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #007bff;
+    }
+
+    .simbolo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .btn-igual {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 16px;
+      cursor: pointer;
+    }
+
+    .btn-igual:hover {
+      background-color: #0056b3;
+    }
+
+    #resultado {
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <input type="number" id="numero1" placeholder="Número 1">
+
+    <select id="operacao1">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+      <option value="%">%</option>
+      <option value="**">^</option>
+    </select>
+
+    <input type="number" id="numero2" placeholder="Número 2">
+
+    <select id="operacao2">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+      <option value="%">%</option>
+      <option value="**">^</option>
+    </select>
+
+    <input type="number" id="numero3" placeholder="Número 3">
+
+    <button class="btn-igual" onclick="calcular()">=</button>
+
+    <p id="resultado">Resultado: </p>
+
+  </div>
+
+  <script>
+
+    // Função responsável por realizar cada operação.
+    function realizarOperacao(a, b, operacao) {
+
+      switch (operacao) {
+
+        case "+":
+          return a + b;
+
+        case "-":
+          return a - b;
+
+        case "*":
+          return a * b;
+
+        case "/":
+          if (b === 0) {
+            throw new Error("Não é possível dividir por zero!");
+          }
+          return a / b;
+
+        case "%":
+          return (a * b) / 100;
+
+        case "**":
+          return Math.pow(a, b);
+
+        default:
+          throw new Error("Operação inválida!");
+      }
+    }
+
+    // Função principal da calculadora.
+    function calcular() {
+
+      const campo1 = document.getElementById("numero1").value;
+      const campo2 = document.getElementById("numero2").value;
+      const campo3 = document.getElementById("numero3").value;
+
+      const resultadoElemento = document.getElementById("resultado");
+
+      // Verifica se os três campos foram preenchidos.
+      if (campo1 === "" || campo2 === "" || campo3 === "") {
+        resultadoElemento.textContent =
+          "Preencha todos os números!";
+        return;
+      }
+
+      const numero1 = Number(campo1);
+      const numero2 = Number(campo2);
+      const numero3 = Number(campo3);
+
+      // Verifica se os números são válidos.
+      if (!Number.isFinite(numero1) ||
+          !Number.isFinite(numero2) ||
+          !Number.isFinite(numero3)) {
+
+        resultadoElemento.textContent = "Digite números válidos!";
+        return;
+      }
+
+      const operacao1 = document.getElementById("operacao1").value;
+      const operacao2 = document.getElementById("operacao2").value;
+
+      try {
+
+        // Realiza a primeira operação.
+        const parcial = realizarOperacao(
+          numero1,
+          numero2,
+          operacao1
+        );
+
+        // Verifica se o resultado intermediário é válido.
+        if (!Number.isFinite(parcial)) {
+          throw new Error("Resultado intermediário muito grande!");
+        }
+
+        // Utiliza o resultado anterior na segunda operação.
+        const resultado = realizarOperacao(
+          parcial,
+          numero3,
+          operacao2
+        );
+
+        if (!Number.isFinite(resultado)) {
+          throw new Error("Resultado muito grande!");
+        }
+
+        // Mostra o resultado final.
+        resultadoElemento.textContent =
+          "Resultado: " + resultado;
+
+      } catch (erro) {
+
+        // Mostra mensagens de erro.
+        resultadoElemento.textContent = erro.message;
+
+      }
+    }
+
+  </script>
+
+</body>
+</html>
