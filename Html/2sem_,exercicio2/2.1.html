@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora - 5 Operações</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    input[type="number"], select {
+      width: 100px;
+      padding: 10px;
+      font-size: 18px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: #007bff;
+    }
+
+    .simbolo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .btn-igual {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 16px;
+      cursor: pointer;
+    }
+
+    .btn-igual:hover {
+      background-color: #0056b3;
+    }
+
+    #resultado {
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <input type="number" id="numero1" placeholder="Número 1">
+
+    <select id="operacao">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">×</option>
+      <option value="/">÷</option>
+      <option value="%">%</option>
+    </select>
+
+    <input type="number" id="numero2" placeholder="Número 2">
+
+    <button class="btn-igual" onclick="calcular()">=</button>
+
+    <p id="resultado">Resultado: </p>
+
+  </div>
+
+  <script>
+    function calcular() {
+
+      const numero1 = parseFloat(document.getElementById("numero1").value);
+      const numero2 = parseFloat(document.getElementById("numero2").value);
+      const operacao = document.getElementById("operacao").value;
+
+      let resultado;
+
+      if (isNaN(numero1) || isNaN(numero2)) {
+        document.getElementById("resultado").textContent =
+          "Digite os dois números!";
+        return;
+      }
+
+      switch (operacao) {
+
+        case "+":
+          resultado = numero1 + numero2;
+          break;
+
+        case "-":
+          resultado = numero1 - numero2;
+          break;
+
+        case "*":
+          resultado = numero1 * numero2;
+          break;
+
+        case "/":
+          if (numero2 === 0) {
+            document.getElementById("resultado").textContent =
+              "Não é possível dividir por zero!";
+            return;
+          }
+          resultado = numero1 / numero2;
+          break;
+
+        case "%":
+          resultado = numero1 * numero2 / 100;
+          break;
+
+        default:
+          resultado = "Operação inválida";
+      }
+
+      document.getElementById("resultado").textContent =
+        "Resultado: " + resultado;
+    }
+  </script>
+
+</body>
+</html>
