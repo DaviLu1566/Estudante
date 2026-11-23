@@ -1,0 +1,31 @@
+
+[
+    {
+        "id": 1,
+        "nome": "Maçã",
+        "categoria": "Fruta",
+        "preco": 5.99,
+        "quantidade": 30
+    },
+    {
+        "id": 2,
+        "nome": "Banana",
+        "categoria": "Fruta",
+        "preco": 4.50,
+        "quantidade": 50
+    },
+    {
+        "id": 3,
+        "nome": "Tomate",
+        "categoria": "Legume",
+        "preco": 6.00,
+        "quantidade": 25
+    },
+    {
+        "id": 4,
+        "nome": "Alface",
+        "categoria": "Verdura",
+        "preco": 3.50,
+        "quantidade": 40
+    }
+]
