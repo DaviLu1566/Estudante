@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Somatório e Produtório</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="number"], select {
+      width: 110px;
+      padding: 10px;
+      font-size: 18px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    input[type="number"]:focus,
+    select:focus {
+      border-color: #007bff;
+    }
+
+    .simbolo {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .btn-igual {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      padding: 6px 16px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-igual:hover {
+      background-color: #0056b3;
+    }
+
+    #resultado {
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <select id="operacao" onchange="atualizarCampos()">
+      <option value="soma">Somatório (Σ)</option>
+      <option value="produto">Produtório (Π)</option>
+      <option value="potencia">Potenciação (xʸ)</option>
+      <option value="fatorial">Fatorial (!)</option>
+    </select>
+
+    <input type="number" id="numero1" placeholder="Número 1">
+
+    <span class="simbolo" id="simbolo">até</span>
+
+    <input type="number" id="numero2" placeholder="Número 2">
+
+    <button class="btn-igual" onclick="calcular()">=</button>
+
+    <p id="resultado">Resultado: </p>
+
+  </div>
+
+  <script>
+
+    // Atualiza os campos de acordo com a operação selecionada.
+    function atualizarCampos() {
+
+      const operacao = document.getElementById("operacao").value;
+      const numero2 = document.getElementById("numero2");
+      const simbolo = document.getElementById("simbolo");
+
+      if (operacao === "soma" || operacao === "produto") {
+
+        numero2.style.display = "inline-block";
+        simbolo.style.display = "inline-block";
+        simbolo.textContent = "até";
+        numero1.placeholder = "Início";
+        numero2.placeholder = "Fim";
+
+      }
+
+      else if (operacao === "potencia") {
+
+        numero2.style.display = "inline-block";
+        simbolo.style.display = "inline-block";
+        simbolo.textContent = "^";
+        numero1.placeholder = "Base";
+        numero2.placeholder = "Expoente";
+
+      }
+
+      else if (operacao === "fatorial") {
+
+        numero2.style.display = "none";
+        simbolo.style.display = "inline-block";
+        simbolo.textContent = "!";
+        numero1.placeholder = "Número";
+      }
+
+      document.getElementById("resultado").textContent = "Resultado: ";
+    }
+
+    // Função principal de cálculo.
+    function calcular() {
+
+      const operacao = document.getElementById("operacao").value;
+
+      const campo1 = document.getElementById("numero1").value;
+      const campo2 = document.getElementById("numero2").value;
+
+      const n1 = Number(campo1);
+      const n2 = Number(campo2);
+
+      const resultadoElemento = document.getElementById("resultado");
+
+      let resultado = 0;
+
+      // Verifica se o primeiro campo foi preenchido.
+      if (campo1 === "") {
+        resultadoElemento.textContent = "Digite o primeiro número!";
+        return;
+      }
+
+      if (!Number.isFinite(n1)) {
+        resultadoElemento.textContent = "Número inválido!";
+        return;
+      }
+
+      // SOMATÓRIO
+      if (operacao === "soma") {
+
+        if (campo2 === "") {
+          resultadoElemento.textContent = "Digite o número final!";
+          return;
+        }
+
+        if (!Number.isInteger(n1) || !Number.isInteger(n2) ||
+            n1 > n2 || n2 - n1 > 1000) {
+          resultadoElemento.textContent = "Digite um intervalo válido de inteiros!";
+          return;
+        }
+
+        resultado = 0;
+
+        for (let i = n1; i <= n2; i++) {
+          resultado += i;
+        }
+
+      }
+
+      // PRODUTÓRIO
+      else if (operacao === "produto") {
+
+        if (campo2 === "") {
+          resultadoElemento.textContent = "Digite o número final!";
+          return;
+        }
+
+        if (!Number.isInteger(n1) || !Number.isInteger(n2) ||
+            n1 > n2 || n2 - n1 > 1000) {
+          resultadoElemento.textContent = "Digite um intervalo válido de inteiros!";
+          return;
+        }
+
+        resultado = 1;
+
+        for (let i = n1; i <= n2; i++) {
+          resultado *= i;
+        }
+
+      }
+
+      // POTENCIAÇÃO
+      else if (operacao === "potencia") {
+
+        if (campo2 === "") {
+          resultadoElemento.textContent = "Digite o expoente!";
+          return;
+        }
+
+        if (!Number.isFinite(n2)) {
+          resultadoElemento.textContent = "Expoente inválido!";
+          return;
+        }
+
+        resultado = Math.pow(n1, n2);
+
+      }
+
+      // FATORIAL
+      else if (operacao === "fatorial") {
+
+        if (!Number.isInteger(n1) || n1 < 0 || n1 > 170) {
+          resultadoElemento.textContent =
+            "Digite um número inteiro entre 0 e 170!";
+          return;
+        }
+
+        resultado = 1;
+
+        for (let i = 1; i <= n1; i++) {
+          resultado *= i;
+        }
+
+      }
+
+      // Verifica se o resultado é válido.
+      if (!Number.isFinite(resultado)) {
+        resultadoElemento.textContent = "Resultado muito grande ou inválido!";
+        return;
+      }
+
+      // Exibe o resultado na página.
+      resultadoElemento.textContent = "Resultado: " + resultado;
+
+      console.log("Resultado:", resultado);
+
+    }
+
+    // Configura os campos ao abrir a página.
+    const numero1 = document.getElementById("numero1");
+
+    atualizarCampos();
+
+  </script>
+
+</body>
+</html>
