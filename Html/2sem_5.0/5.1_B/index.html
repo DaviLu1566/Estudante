@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Hortifruti</title>
+
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="painel-esquerdo">
+            <h3>Produtos</h3>
+            <select id="selectProdutos" size="5"></select>
+        </div>
+
+        <div class="painel-meio">
+            <button id="btnDetalhes">Detalhes</button>
+            <button id="btnNovo">Novo Produto</button>
+        </div>
+
+        <div class="painel-direito">
+
+            <div class="card-info">
+                <strong>Nome</strong>
+                <div id="divNome">-</div>
+            </div>
+
+            <div class="card-info">
+                <strong>Categoria</strong>
+                <div id="divCategoria">-</div>
+            </div>
+
+            <div class="card-info">
+                <strong>Preço</strong>
+                <div id="divPreco">-</div>
+            </div>
+
+            <div class="card-info">
+                <strong>Quantidade em estoque</strong>
+                <div id="divQuantidade">-</div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal de cadastro -->
+
+    <div class="modal-overlay" id="modalForm">
+
+        <div class="modal-content">
+
+            <h3>Cadastrar Produto</h3>
+
+            <div class="form-group">
+                <label for="inputNome">Nome:</label>
+                <input type="text" id="inputNome">
+            </div>
+
+            <div class="form-group">
+                <label for="inputCategoria">Categoria:</label>
+                <input type="text" id="inputCategoria">
+            </div>
+
+            <div class="form-group">
+                <label for="inputPreco">Preço:</label>
+                <input type="number" id="inputPreco" min="0" step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label for="inputQuantidade">Quantidade:</label>
+                <input type="number" id="inputQuantidade" min="0" step="1">
+            </div>
+
+            <div class="modal-acoes">
+                <button id="btnCancelar" class="btn-cancelar">
+                    Cancelar
+                </button>
+
+                <button id="btnSalvar" class="btn-salvar">
+                    Salvar
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
